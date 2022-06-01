@@ -9,7 +9,7 @@ Please fork this repository and create a Pull Request against the `main` branch 
 
 [Challenge 1](challenges/challenge_0.md)
 
-[Challenge 2](challenges/challenge_1.md)
+[Challenge 2](challenges/challenge_01.md)
 
-[Challenge 3](challenges/challenge_3.md)
+[Challenge 3](challenges/challenge_02.md)
 
