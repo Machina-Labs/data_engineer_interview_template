@@ -15,3 +15,5 @@ Please fork this repository and create a Pull Request against the `main` branch 
 
 [Challenge 3](challenges/challenge_03.md)
 
+[Challenge 4](challenges/challenge_04.md)
+
