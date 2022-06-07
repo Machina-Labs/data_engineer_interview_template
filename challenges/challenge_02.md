@@ -1,50 +1,46 @@
-This challenge is a 2 part:
+In this challenge, there are two parts, we will be having you write a few queries reading data from a SQL table. In the Challeges folder, you will find a directory called `sql_data`. This holds a file with a sample SQL Data. 
 
-Using RapidAPI.com, write a python script that fetches JSON data from `https://world-population.p.rapidapi.com/population`. An API key may be required, feel free to sign up as it's free or request an key from us. 
+If you wish, you can load the `main.sql` into your own local MySQL or SQLite Database. The data you will be querying is `data.txt`. 
 
-Please ensure your script completes the following:
+Note: There is a section at the bottom of `main.sql` where you can write your queries. 
 
-1) Fetches JSON Data from `https://world-population.p.rapidapi.com/population`
+1) Write a Query to retrieve the top 5 employees based on sorted hire date. Earlist date being on top in the sort. 
 
-2) Loop over all countries and get population
+2) Write a Query to retrieve employees based on Highest Salary. 
 
-3) Grab the average population across all countries sorted by Population size.
+3) Write a query to list the number of jobs available.
 
-Use the starter script below to complete this assignment.
+4) Write a query to get the maximum salary of an employee working as a Programmer.
 
-Here is a starter script so your setup to talk to RapidAPI:
+5) Write a query to get the average salary and number of employees working the department 90.
 
-```python
-from tqdm import tqdm
+## Part 2
 
-# rename some countries to later match the country names from RapidAPI
-df_happiness = df_happiness.apply(lambda x: x.replace("Congo (Kinshasa)", "DR Congo"))
-df_happiness = df_happiness.apply(lambda x: x.replace("Congo (Brazzaville)", "Congo"))
-df_happiness = df_happiness.apply(lambda x: x.replace("Ivory Coast", "Côte d'Ivoire"))
+Please add comments to each part of the script below on the function that each part does. 
 
-# create URL and headers for API call
-url = "https://world-population.p.rapidapi.com/population"
-
-# the headers can be found when logging in to your RapidAPI account and opening the link above
-headers = {
-    'x-rapidapi-host': "world-population.p.rapidapi.com",
-    'x-rapidapi-key': "***************************"
-}
-
-# add population column first by setting all values to NaN
-df_happiness["Population"] = np.nan
 ```
+from bs4 import BeautifulSoup
+import requests
+import pandas as pd
+import json
+import numpy as np
 
-2nd Assignment:
+# Add Comment here
+html_data = requests.get("https://en.wikipedia.org/wiki/World_Happiness_Report")
 
-Using the dataset `https://www.worlddata.info/average-age.php`, please write a script in Python to solve the following questions.
+# Add Comment here
+print(html_data.status_code)
 
-1) Pull the average age per country data from the worlddata website and store it in a Pandas data frame.
+# Add Comment here
+soup = BeautifulSoup(html_data.text, "html.parser")
 
-2) Add the data into a jupyter notebook and graph out the data you averaged in the 1st question. 
+# Add Comment here
+tables = soup.find_all('table',{'class':"wikitable"})
 
-3) Add a Transform section of your script (ETL), this transform should add a column to calulate the GDP of each country, This can be computed by multiplying the columns “GDP per capita” and “Population”.
+# Add Comment here
+table = tables[0]
 
-4) The `Population under 20 years old` column is a string, convert it to a float. Show how you would do this in your script by adding a comment.
-
-4) You may notice some data missing in the dataset, please call it out if you find it - Extra Credit
+# Add Comment here
+data = pd.read_html(str(table))
+df_happiness = pd.DataFrame(data[0])
+```
