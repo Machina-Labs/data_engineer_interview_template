@@ -221,6 +221,25 @@ UNLOCK TABLES;
 
 /* WRITE YOUR QUERY HERE */
 
+-- 1. Write a Query to retrieve the top 5 employees based on sorted hire date. Earlist date being on top in the sort.
+
+select * from employees order by HIRE_DATE asc limit 5;
+
+-- 2. Write a Query to retrieve employees based on Highest Salary.
+
+select * from employees order by SALARY desc;
+
+-- 3. Write a query to list the number of jobs available.
+
+select count(distinct JOB_ID) from employees;
+
+-- 4. Write a query to get the maximum salary of an employee working as a Programmer.
+
+select max(SALARY) from employees where JOB_ID = 'IT_PROG';
+
+-- 5. Write a query to get the average salary and number of employees working the department 90.
+
+select avg(SALARY), count(distinct EMPLOYEE_ID) from employees where DEPARTMENT_ID = 90;
 
 
 
